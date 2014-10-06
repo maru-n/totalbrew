@@ -4,7 +4,6 @@
 import sys
 import subprocess
 
-
 if __name__ == '__main__':
     args = sys.argv
 
@@ -13,17 +12,14 @@ if __name__ == '__main__':
         sys.exit()
 
     if args[1] == "brew":
-        command = "brew"
-        command_args = args[2:]
+        command = ["brew"] + args[2:]
+    elif args[1] in ("cask"):
+        command = ["brew", "cask"] + args[2:]
     elif args[1] in ("python", "py", "pip"):
-        command = "pip"
-        command_args = args[2:]
+        command = ["pip"] + args[2:]
     elif args[1] in ("ruby", "rb", "gem"):
-        command = "gem"
-        command_args = args[2:]
+        command = ["gem"] + args[2:]
     else:
-        command = "brew"
-        command_args = args[1:]
+        command = ["brew"] + args[1:]
 
-    command_list = [command] + command_args
-    command_process = subprocess.call(command_list)
+    command_process = subprocess.call(command)

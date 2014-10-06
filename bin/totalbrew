@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TOTALBREW_FILE_DIR=$(cd "${0%/*}" && pwd -P)
-TOTALBREW_LIBRARY_DIR=$(cd "$TOTALBREW_FILE_DIR"/../lib && pwd -P)
+TOTALBREW_FILE_DIRECTORY=$(cd "${0%/*}" && pwd -P)
+TOTALBREW_LIBRARY_DIRECTORY=$(cd "$TOTALBREW_FILE_DIRECTORY"/../lib && pwd -P)
 
-exec "$TOTALBREW_LIBRARY_DIR/totalbrew.py" "$@"
+exec "$TOTALBREW_LIBRARY_DIRECTORY/totalbrew.py" "$@"
